@@ -42,6 +42,7 @@ import contractABI from './contract/abi.json';
       toAddress: contractAddress,
       gasLimit: Number(30000),
       transactionData: dataInput,
+      provider,
     };
     
     //7 - Fazer a chamada para o sendTransaction do Greg, mandando o objectTransaction no body.
