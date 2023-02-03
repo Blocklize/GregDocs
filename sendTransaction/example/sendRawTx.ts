@@ -7,6 +7,7 @@ import contractABI from './contract/abi.json';
 
  async createMintTransaction(addressTo: string, amount: number): Promise<any> {
     //0 - definir a sua signatureKey (deve ser passada para vocês por algum dev da GREG)
+    //quando você deseja realizar uma transação que a sua carteira master realizará (e não a carteira de um usuário), deve ser passado no bearer da requisição sua signatureKey, se não, deve ser passado o accessToken do user.
     const signatureKey = //...
  
     //1 - setar seu provider, um provider pode ser criado em plataformas como https://www.alchemy.com/
