@@ -11,9 +11,14 @@ import contractABI from './contract/abi.json';
     const signatureKey = //...
  
     //1 - setar seu provider, um provider pode ser criado em plataformas como https://www.alchemy.com/
+     const urlProvider = 'https://opt-goerli.g.alchemy.com/v2/d5EutXN-ONUVG_KPQmhE-yPeTTvEi5jI',
     const provider = new ethers.providers.JsonRpcProvider(
-      'https://opt-goerli.g.alchemy.com/v2/d5EutXN-ONUVG_KPQmhE-yPeTTvEi5jI',
+      urlProvider,
     );
+    
+    //1.5 - definir as sigla da chain que você deseja realizar transação, para saber as chains disponíveis, ver: /getChainsOptions
+    const chainSigla = 'MATIC_Mumbai_Testnet'
+
     
     //2 - definir o endereço do contrato que você deseja chamar:
     const contractAddress = '0x5c373ebc06Ef1aEc2Cd30805Eb2184482e023b26';
@@ -42,7 +47,8 @@ import contractABI from './contract/abi.json';
       toAddress: contractAddress,
       gasLimit: Number(30000),
       transactionData: dataInput,
-      provider,
+      provider: urlProvider,
+      chain: chainSigla
     };
     
     //7 - Fazer a chamada para o sendTransaction do Greg, mandando o objectTransaction no body.
